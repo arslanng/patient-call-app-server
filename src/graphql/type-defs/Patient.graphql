@@ -1,0 +1,35 @@
+type Patient {
+  id: ID!
+  registration_number: ID!
+  status: String!
+  company: String!
+}
+
+input createPatientInput {
+  registration_number: ID!
+  status: String!
+  company: String!
+}
+
+input updatePatientInput {
+  status: String
+}
+
+type DeleteAllOutput {
+  count: Int!
+}
+
+type Query {
+  patients: [Patient!]
+}
+
+type Mutation {
+  createPatient(data: createPatientInput!): Patient!
+  updatePatient(id: ID!, data: updatePatientInput!): Patient!
+  deletePatient(id: ID!): Patient!
+  deleteAllPatients: DeleteAllOutput!
+}
+
+type Subscription {
+  allPatients: [Patient!]
+}
