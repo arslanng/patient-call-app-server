@@ -11,6 +11,7 @@ export const Mutation = {
     db.patients.push(patient);
 
     pubSub.publish("allPatients", { allPatients: db.patients });
+    pubSub.publish("patientCreated", {patientCreated: patient})
     return patient;
   },
 
@@ -26,6 +27,7 @@ export const Mutation = {
     });
 
     pubSub.publish("allPatients", { allPatients: db.patients });
+    pubSub.publish("patientUpdated", {patientUpdated: update_patient})
     return update_patient;
   },
 
@@ -39,6 +41,7 @@ export const Mutation = {
     db.patients.splice(patient_index, 1);
 
     pubSub.publish("allPatients", { allPatients: db.patients });
+    pubSub.publish("patientDeleted", {patientDeleted: deleted_patient})
     return deleted_patient;
   },
 

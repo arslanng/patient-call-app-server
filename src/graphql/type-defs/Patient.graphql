@@ -32,4 +32,7 @@ type Mutation {
 
 type Subscription {
   allPatients: [Patient!]
+  patientCreated(company: String): Patient
+  patientDeleted(company: String): Patient
+  patientUpdated(company: String): Patient
 }
